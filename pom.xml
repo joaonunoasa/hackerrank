@@ -11,6 +11,8 @@
     <modules>
         <module>java-int-to-string</module>
         <module>common</module>
+        <module>birthday-cake-candles</module>
+        <module>time-conversion</module>
     </modules>
 
 
