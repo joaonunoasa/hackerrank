@@ -1,0 +1,10 @@
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+*.iml
+birthday-cake-candles/target/
+common-art-id/target/
+java-int-to-string/target/
+time-conversion/target/
