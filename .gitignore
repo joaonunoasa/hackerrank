@@ -1,8 +1,4 @@
-.idea/compiler.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/workspace.xml
+.idea/*
 *.iml
 birthday-cake-candles/target/
 common-art-id/target/
