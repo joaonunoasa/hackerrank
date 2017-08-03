@@ -21,6 +21,7 @@
         <module>birthday-cake-candles</module>
         <module>time-conversion</module>
         <module>spring-boot-quick-start</module>
+        <module>course-api-data</module>
     </modules>
 
 
