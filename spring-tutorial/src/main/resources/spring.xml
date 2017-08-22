@@ -4,11 +4,24 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <bean id="triangle" class="org.javabrains.Triangle">
-        <property name="type" value="Equilateral"/>
+        <property name="pointA" ref="zeroPoint"/>
+        <property name="pointB" ref="point2"/>
+        <property name="pointC" ref="point3"/>
     </bean>
 
-    <bean id="square" class="org.javabrains.Square">
-        <constructor-arg value="50"/>
+    <bean id="zeroPoint" class="org.javabrains.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point2" class="org.javabrains.Point">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="point3" class="org.javabrains.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
     </bean>
 
 </beans>

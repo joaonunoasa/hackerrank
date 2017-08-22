@@ -9,8 +9,5 @@ public class DrawingApp {
         ApplicationContext context= new ClassPathXmlApplicationContext("spring.xml");
         Triangle triangle = (Triangle) context.getBean("triangle");
         triangle.draw();
-
-        Square square = (Square) context.getBean("square");
-        square.draw();
     }
 }
