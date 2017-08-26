@@ -9,18 +9,19 @@
     </bean>
 
     <bean id="triangle" class="org.javabrains.Triangle" name="triangle-name">
-        <property name="pointA" ref="zeroPoint"/>
-        <property name="pointB">
-            <bean class="org.javabrains.Point">
-                <property name="x" value="-20"/>
-                <property name="y" value="0"/>
-            </bean>
-        </property>
-        <property name="pointC">
-            <bean class="org.javabrains.Point">
-                <property name="x" value="20"/>
-                <property name="y" value="0"/>
-            </bean>
+
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint"/>
+                <bean class="org.javabrains.Point">
+                    <property name="x" value="-20"/>
+                    <property name="y" value="0"/>
+                </bean>
+                <bean class="org.javabrains.Point">
+                    <property name="x" value="20"/>
+                    <property name="y" value="0"/>
+                </bean>
+            </list>
         </property>
     </bean>
 
