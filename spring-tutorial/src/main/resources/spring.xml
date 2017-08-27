@@ -3,28 +3,21 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
-    <bean id="zeroPoint" class="org.javabrains.Point">
+    <bean id="pointA" class="org.javabrains.Point" scope="prototype">
         <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="triangle" class="org.javabrains.Triangle" name="triangle-name">
-
-        <property name="points">
-            <list>
-                <ref bean="zeroPoint"/>
-                <bean class="org.javabrains.Point">
-                    <property name="x" value="-20"/>
-                    <property name="y" value="0"/>
-                </bean>
-                <bean class="org.javabrains.Point">
-                    <property name="x" value="20"/>
-                    <property name="y" value="0"/>
-                </bean>
-            </list>
-        </property>
+    <bean id="pointB" class="org.javabrains.Point">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
     </bean>
 
-    <alias name="triangle" alias="triangle-alias"/>
+    <bean id="pointC" class="org.javabrains.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <bean id="triangle" class="org.javabrains.Triangle" autowire="byName"/>
 
 </beans>
