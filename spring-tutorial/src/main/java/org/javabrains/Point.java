@@ -1,6 +1,11 @@
 package org.javabrains;
 
-public class Point {
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Point implements ApplicationContextAware, BeanNameAware {
 
     private int x;
     private int y;
@@ -46,5 +51,15 @@ public class Point {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    @Override
+    public void setBeanName(String beanName) {
+        System.out.println("Bean name is " + beanName);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+
     }
 }
