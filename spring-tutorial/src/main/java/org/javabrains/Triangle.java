@@ -2,12 +2,11 @@ package org.javabrains;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean {
+//public class Triangle implements ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean {
+public class Triangle implements ApplicationContextAware, BeanNameAware {
 
     private Point pointA;
     private Point pointB;
@@ -53,6 +52,7 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
         System.out.println("Bean name is " + beanName);
     }
 
+    /*
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Triangle Initialized!!");
@@ -60,6 +60,15 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 
     @Override
     public void destroy() throws Exception {
+        System.out.println("Triangle destroyed!");
+    }
+    */
+
+    public void myInit() {
+        System.out.println("Triangle Initialized!!");
+    }
+
+    public void myDestroy() {
         System.out.println("Triangle destroyed!");
     }
 }

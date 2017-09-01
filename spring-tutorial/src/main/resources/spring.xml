@@ -18,6 +18,6 @@
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="triangle" class="org.javabrains.Triangle" autowire="byName"/>
+    <bean id="triangle" class="org.javabrains.Triangle" autowire="byName" init-method="myInit" destroy-method="myDestroy"/>
 
 </beans>
