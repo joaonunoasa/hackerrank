@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+<beans
+        default-init-method="myInit"
+        default-destroy-method="myDestroy"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <bean id="pointA" class="org.javabrains.Point" scope="prototype">
         <property name="x" value="0"/>
@@ -18,6 +21,6 @@
         <property name="y" value="0"/>
     </bean>
 
-    <bean id="triangle" class="org.javabrains.Triangle" autowire="byName" init-method="myInit" destroy-method="myDestroy"/>
+    <bean id="triangle" class="org.javabrains.Triangle" autowire="byName"/>
 
 </beans>
