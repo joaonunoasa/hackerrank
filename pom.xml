@@ -24,6 +24,7 @@
         <module>course-api-data</module>
         <module>spring-tutorial</module>
         <module>hibernate-spring</module>
+        <module>kata-bowling</module>
     </modules>
 
 
