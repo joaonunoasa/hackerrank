@@ -11,11 +11,4 @@
 
     <artifactId>jersey-rest-jax-rs</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
-    </dependencies>
-
 </project>

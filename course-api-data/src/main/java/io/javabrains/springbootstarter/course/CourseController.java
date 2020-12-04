@@ -25,7 +25,7 @@ public class CourseController {
 
     @RequestMapping("topics/{topicId}/courses/{id}")
     public Course getCourse(@PathVariable String topicId, @PathVariable String id) {
-        return courseService.getCourse(id);
+        return courseService.getCourse(id).orElseThrow(() -> new RuntimeException("Could not find course for topic " + id));
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/topics/{topicId}/courses")

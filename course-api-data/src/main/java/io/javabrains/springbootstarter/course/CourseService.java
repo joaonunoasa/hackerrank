@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Business service.
@@ -20,8 +21,8 @@ class CourseService {
         return courseRepository.findByTopicId(topicId);
     }
 
-    Course getCourse(String id) {
-        return courseRepository.findOne(id);
+    Optional<Course> getCourse(String id) {
+        return courseRepository.findById(id);
     }
 
     void addCourse(Course course) {
@@ -33,6 +34,6 @@ class CourseService {
     }
 
     void deleteCourse(String id) {
-        courseRepository.delete(id);
+        courseRepository.deleteById(id);
     }
 }
