@@ -4,3 +4,17 @@ birthday-cake-candles/target/
 common-art-id/target/
 java-int-to-string/target/
 time-conversion/target/
+
+.idea/
+.settings/
+data/
+tmp/
+target/
+
+**/*.iml
+**/*.swp
+**/bin/
+**/target/
+**/bower_components/
+**/node_modules/
+**/.terraform

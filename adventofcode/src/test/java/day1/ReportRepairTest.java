@@ -1,8 +1,6 @@
 package day1;
 
-import day1.ReportRepair;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class ReportRepairTest {
 
@@ -33,7 +32,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForTwoEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(514579));
+        assertThat(value, is(514579));
     }
 
     @Test
@@ -54,7 +53,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForTwoEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(514579));
+        assertThat(value, is(514579));
     }
 
     @Test
@@ -75,7 +74,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForTwoEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(888331));
+        assertThat(value, is(888331));
     }
 
     @Test
@@ -96,7 +95,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForThreeEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(241861950));
+        assertThat(value, is(241861950));
     }
 
     @Test
@@ -117,7 +116,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForThreeEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(241861950));
+        assertThat(value, is(241861950));
     }
 
     @Test
@@ -138,7 +137,7 @@ public class ReportRepairTest {
         int value = ReportRepair.fixExpenseReportForThreeEntries(lines);
 
         // Then
-        Assert.assertThat(value, is(130933530));
+        assertThat(value, is(130933530));
     }
 
 }

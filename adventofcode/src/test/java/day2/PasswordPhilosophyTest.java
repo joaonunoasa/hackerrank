@@ -1,7 +1,6 @@
 package day2;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 public class PasswordPhilosophyTest {
@@ -39,7 +39,7 @@ public class PasswordPhilosophyTest {
         int value = PasswordPhilosophy.countValidPasswords(lines);
 
         // Then
-        Assert.assertThat(value, is(1));
+        assertThat(value, is(1));
     }
 
 
@@ -68,7 +68,7 @@ public class PasswordPhilosophyTest {
         int value = PasswordPhilosophy.countValidPasswords(lines);
 
         // Then
-        Assert.assertThat(value, is(558));
+        assertThat(value, is(558));
     }
 
 }
