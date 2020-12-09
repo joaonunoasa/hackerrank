@@ -30,18 +30,18 @@ public class HandheldHaltingTest {
 
             if (argumentAbsolute.charAt(0) == '+') {
                 int argument = Integer.parseInt(argumentAbsolute.substring(1));
-                instructions.add(new Instruction(operation, argument, false));
+                instructions.add(new Instruction(operation, argument, false, false));
             }
 
             if (argumentAbsolute.charAt(0) == '-') {
                 int argument = Integer.parseInt(argumentAbsolute.substring(1));
-                instructions.add(new Instruction(operation, -argument, false));
+                instructions.add(new Instruction(operation, -argument, false, false));
             }
         }
 
         int accumulator = HandheldHalting.calculateAccumulatorFor(instructions);
 
-        assertThat(accumulator, is(5));
+        assertThat(accumulator, is(8));
     }
 
     @Test
@@ -60,17 +60,17 @@ public class HandheldHaltingTest {
 
             if (argumentAbsolute.charAt(0) == '+') {
                 int argument = Integer.parseInt(argumentAbsolute.substring(1));
-                instructions.add(new Instruction(operation, argument, false));
+                instructions.add(new Instruction(operation, argument, false, false));
             }
 
             if (argumentAbsolute.charAt(0) == '-') {
                 int argument = Integer.parseInt(argumentAbsolute.substring(1));
-                instructions.add(new Instruction(operation, -argument, false));
+                instructions.add(new Instruction(operation, -argument, false, false));
             }
         }
 
         int accumulator = HandheldHalting.calculateAccumulatorFor(instructions);
 
-        assertThat(accumulator, is(1727));
+        assertThat(accumulator, is(552));
     }
 }

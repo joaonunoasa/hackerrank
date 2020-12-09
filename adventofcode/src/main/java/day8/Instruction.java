@@ -12,4 +12,5 @@ public class Instruction {
     private String operation;
     private int argument;
     private boolean alreadyExecuted;
+    private boolean alreadyTriedToReverted;
 }
