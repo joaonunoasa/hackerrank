@@ -30,8 +30,10 @@ public class EncodingErrorTest {
         }
 
         Long firstNumber = EncodingError.findFirstNumberForPreambleOf(entireList, 5);
-
         assertThat(firstNumber, is(127L));
+
+        Long encryptionWeakness = EncodingError.findEncryptionWeakness(entireList, firstNumber);
+        assertThat(encryptionWeakness, is(62L));
     }
 
     @Test
@@ -48,8 +50,10 @@ public class EncodingErrorTest {
         }
 
         Long firstNumber = EncodingError.findFirstNumberForPreambleOf(entireList, 5);
-
         assertThat(firstNumber, is(127L));
+
+        Long encryptionWeakness = EncodingError.findEncryptionWeakness(entireList, firstNumber);
+        assertThat(encryptionWeakness, is(62L));
     }
 
 
@@ -87,5 +91,8 @@ public class EncodingErrorTest {
         Long firstNumber = EncodingError.findFirstNumberForPreambleOf(entireList, 25);
 
         assertThat(firstNumber, is(10884537L));
+
+        Long encryptionWeakness = EncodingError.findEncryptionWeakness(entireList, firstNumber);
+        assertThat(encryptionWeakness, is(1261309L));
     }
 }

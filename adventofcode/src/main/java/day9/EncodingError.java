@@ -45,4 +45,60 @@ public class EncodingError {
         }
         return foundTwoNumbers;
     }
+
+    public static Long findEncryptionWeakness(List<Long> entireList, Long firstNumber) {
+
+        int indexOfFirstElement = 0;
+        int indexOfSecondElement = 1;
+        boolean foundSequenceOfNumbers = false;
+        Long sum = entireList.get(indexOfFirstElement);
+        while (!foundSequenceOfNumbers && indexOfFirstElement < entireList.size()-1) {
+
+            Long secondElement = entireList.get(indexOfSecondElement);
+            sum = sum + secondElement;
+            if (sum.equals(firstNumber)) {
+                foundSequenceOfNumbers = true;
+            } else {
+                indexOfSecondElement++;
+                if (indexOfSecondElement == entireList.size() || sum > firstNumber) {
+                    indexOfFirstElement++;
+                    indexOfSecondElement = indexOfFirstElement+1;
+                    sum = entireList.get(indexOfFirstElement);
+                }
+            }
+        }
+
+        List<Long> contiguousSet = entireList.subList(indexOfFirstElement, indexOfSecondElement + 1);
+
+        Long smallest = smallest(contiguousSet);
+        Long largest = largest(contiguousSet);
+
+        return smallest + largest;
+    }
+
+    private static Long largest(List<Long> contiguousSet) {
+        Long largest = contiguousSet.get(0);
+
+        for (int i = 1; i < contiguousSet.size(); i++) {
+            Long numberToEvaluate = contiguousSet.get(i);
+            if (numberToEvaluate > largest) {
+                largest = numberToEvaluate;
+            }
+        }
+
+        return largest;
+    }
+
+    private static Long smallest(List<Long> contiguousSet) {
+        Long smallest = contiguousSet.get(0);
+
+        for (int i = 1; i < contiguousSet.size(); i++) {
+            Long numberToEvaluate = contiguousSet.get(i);
+            if (numberToEvaluate < smallest) {
+                smallest = numberToEvaluate;
+            }
+        }
+
+        return smallest;
+    }
 }
