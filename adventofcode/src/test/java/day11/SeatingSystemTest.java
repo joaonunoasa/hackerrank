@@ -17,71 +17,31 @@ public class SeatingSystemTest {
     @Test
     void shouldWorkForExample1() throws IOException {
 
-        List<Row> initialConfiguration = initialConfiguration();
+        List<Row> initialConfiguration = loadFromFile("example1.txt");
 
         List<Row> applyRound1 = SeatingSystem.applyFirstRound(initialConfiguration);
-        List<Row> expectedAfterRound1 = expectedAfterRound1();
-
-        for (int row = 0; row < applyRound1.size(); row++) {
-            for (int column = 0; column < applyRound1.get(row).getSeats().size(); column++) {
-                assertThat(applyRound1.get(row).getSeats().get(column), is(expectedAfterRound1.get(row).getSeats().get(column)));
-            }
-        }
-
-
+        List<Row> expectedAfterRound1 = loadFromFile("expectedFirstRound.txt");
+        compareSeatConfigurations(applyRound1, expectedAfterRound1);
 
         List<Row> applyRound2 = SeatingSystem.applySecondRound(applyRound1);
-        List<Row> expectedAfterRound2 = expectedAfterRound2();
-
-        for (int row = 0; row < applyRound2.size(); row++) {
-            for (int column = 0; column < applyRound2.get(row).getSeats().size(); column++) {
-                assertThat(applyRound2.get(row).getSeats().get(column), is(expectedAfterRound2.get(row).getSeats().get(column)));
-            }
-        }
+        List<Row> expectedAfterRound2 = loadFromFile("expectedSecondRound.txt");
+        compareSeatConfigurations(applyRound2, expectedAfterRound2);
 
 
         //assertThat(occupiedSeats, is(37));
     }
 
-    private List<Row> initialConfiguration() throws IOException {
-
-        String fileName = "src/test/resources/day11/example1.txt";
-        FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        List<Row> lines = new ArrayList<>();
-
-        while ((line = bufferedReader.readLine()) != null) {
-            List<Character> seats = new ArrayList<>();
-            for (char seat : line.toCharArray()) {
-                seats.add(seat);
+    private void compareSeatConfigurations(List<Row> appliedRound, List<Row> expectedAfterRound) {
+        for (int row = 0; row < appliedRound.size(); row++) {
+            for (int column = 0; column < appliedRound.get(row).getSeats().size(); column++) {
+                assertThat(appliedRound.get(row).getSeats().get(column), is(expectedAfterRound.get(row).getSeats().get(column)));
             }
-            lines.add(new Row(seats));
         }
-        return lines;
     }
 
-    private List<Row> expectedAfterRound1() throws IOException {
+    private List<Row> loadFromFile(String file) throws IOException {
 
-        String fileName = "src/test/resources/day11/expectedFirstRound.txt";
-        FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String line;
-        List<Row> lines = new ArrayList<>();
-
-        while ((line = bufferedReader.readLine()) != null) {
-            List<Character> seats = new ArrayList<>();
-            for (char seat : line.toCharArray()) {
-                seats.add(seat);
-            }
-            lines.add(new Row(seats));
-        }
-        return lines;
-    }
-
-    private List<Row> expectedAfterRound2() throws IOException {
-
-        String fileName = "src/test/resources/day11/expectedSecondRound.txt";
+        String fileName = "src/test/resources/day11/" + file;
         FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String line;
