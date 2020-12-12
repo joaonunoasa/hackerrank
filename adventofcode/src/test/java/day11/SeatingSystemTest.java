@@ -27,8 +27,20 @@ public class SeatingSystemTest {
         List<Row> expectedAfterRound2 = loadFromFile("expectedSecondRound.txt");
         compareSeatConfigurations(applyRound2, expectedAfterRound2);
 
+        List<Row> applyRound3 = SeatingSystem.applyFirstRound(applyRound2);
+        List<Row> expectedAfterRound3 = loadFromFile("expectedThirdRound.txt");
+        compareSeatConfigurations(applyRound3, expectedAfterRound3);
 
-        //assertThat(occupiedSeats, is(37));
+        List<Row> applyRound4 = SeatingSystem.applySecondRound(applyRound3);
+        List<Row> expectedAfterRound4 = loadFromFile("expectedForthRound.txt");
+        compareSeatConfigurations(applyRound4, expectedAfterRound4);
+
+        List<Row> applyRound5 = SeatingSystem.applyFirstRound(applyRound4);
+        List<Row> expectedAfterRound5 = loadFromFile("expectedFifthRound.txt");
+        compareSeatConfigurations(applyRound5, expectedAfterRound5);
+
+        int occupiedSeats =SeatingSystem.occupiedSeats(applyRound5);
+        assertThat(occupiedSeats, is(37));
     }
 
     private void compareSeatConfigurations(List<Row> appliedRound, List<Row> expectedAfterRound) {

@@ -56,13 +56,13 @@ public class SeatingSystem {
 
     private static boolean noOccupiedSeatsAdjacentToIt(int row, int column, List<Row> rows) {
 
-        boolean immediatelyUp = row - 1 <= 0 || rows.get(row - 1).getSeats().get(column) == 'L' || rows.get(row - 1).getSeats().get(column) == '.';
-        boolean immediatelyDown = row + 1 >= rows.size() || rows.get(row+1).getSeats().get(column) == 'L' || rows.get(row+1).getSeats().get(column) == '.';
-        boolean immediatelyLeft = column - 1 <= 0 || rows.get(row).getSeats().get(column-1) == 'L' || rows.get(row).getSeats().get(column-1) == '.';
+        boolean immediatelyUp = row - 1 < 0 || rows.get(row - 1).getSeats().get(column) == 'L' || rows.get(row - 1).getSeats().get(column) == '.';
+        boolean immediatelyDown = row + 1 >= rows.size() || rows.get(row + 1).getSeats().get(column) == 'L' || rows.get(row + 1).getSeats().get(column) == '.';
+        boolean immediatelyLeft = column - 1 < 0 || rows.get(row).getSeats().get(column-1) == 'L' || rows.get(row).getSeats().get(column-1) == '.';
         boolean immediatelyRight = column + 1 >= rows.size() || rows.get(row).getSeats().get(column+1) == 'L' || rows.get(row).getSeats().get(column+1) == '.';
-        boolean diagonalUpLeft = row - 1 <= 0 || column - 1 <= 0 || rows.get(row - 1).getSeats().get(column-1) == 'L' || rows.get(row - 1).getSeats().get(column-1) == '.';
-        boolean diagonalUpRight = row - 1 <= 0 || column + 1 >= rows.size() || rows.get(row - 1).getSeats().get(column+1) == 'L' || rows.get(row - 1).getSeats().get(column+1) == '.';
-        boolean diagonalDownLeft = row + 1 >= rows.size() || column - 1 <= 0 || rows.get(row+1).getSeats().get(column-1) == 'L' || rows.get(row+1).getSeats().get(column-1) == '.';
+        boolean diagonalUpLeft = row - 1 < 0 || column - 1 < 0 || rows.get(row - 1).getSeats().get(column - 1) == 'L' || rows.get(row - 1).getSeats().get(column - 1) == '.';
+        boolean diagonalUpRight = row - 1 < 0 || column + 1 >= rows.size() || rows.get(row - 1).getSeats().get(column+1) == 'L' || rows.get(row - 1).getSeats().get(column+1) == '.';
+        boolean diagonalDownLeft = row + 1 >= rows.size() || column - 1 < 0 || rows.get(row+1).getSeats().get(column-1) == 'L' || rows.get(row+1).getSeats().get(column-1) == '.';
         boolean diagonalDownRight = row + 1 >= rows.size() || column + 1 >= rows.size() || rows.get(row+1).getSeats().get(column+1) == 'L' || rows.get(row+1).getSeats().get(column+1) == '.';
 
         return immediatelyUp && immediatelyDown && immediatelyLeft && immediatelyRight &&
@@ -82,5 +82,17 @@ public class SeatingSystem {
 
         return immediatelyUp + immediatelyDown + immediatelyLeft + immediatelyRight +
                 diagonalUpLeft + diagonalUpRight + diagonalDownLeft + diagonalDownRight;
+    }
+
+    public static int occupiedSeats(List<Row> rows) {
+        int occupiedSeats = 0;
+        for (int row = 0; row < rows.size(); row++) {
+            for (int column = 0; column < rows.get(row).getSeats().size(); column++) {
+                if (rows.get(row).getSeats().get(column) == '#') {
+                    occupiedSeats++;
+                }
+            }
+        }
+        return occupiedSeats;
     }
 }
