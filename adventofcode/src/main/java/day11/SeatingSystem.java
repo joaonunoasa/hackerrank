@@ -86,13 +86,24 @@ public class SeatingSystem {
 
     public static int occupiedSeats(List<Row> rows) {
         int occupiedSeats = 0;
-        for (int row = 0; row < rows.size(); row++) {
-            for (int column = 0; column < rows.get(row).getSeats().size(); column++) {
-                if (rows.get(row).getSeats().get(column) == '#') {
+        for (Row value : rows) {
+            for (int column = 0; column < value.getSeats().size(); column++) {
+                if (value.getSeats().get(column) == '#') {
                     occupiedSeats++;
                 }
             }
         }
         return occupiedSeats;
+    }
+
+    public static boolean seatConfigurationsAreEqual(List<Row> appliedRound, List<Row> expectedAfterRound) {
+        for (int row = 0; row < appliedRound.size(); row++) {
+            for (int column = 0; column < appliedRound.get(row).getSeats().size(); column++) {
+                if (appliedRound.get(row).getSeats().get(column) != (expectedAfterRound.get(row).getSeats().get(column))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
