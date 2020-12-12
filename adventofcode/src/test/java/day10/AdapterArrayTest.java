@@ -28,8 +28,12 @@ public class AdapterArrayTest {
         }
 
         int differences = AdapterArray.calculateDifferences(entireList);
-
         assertThat(differences, is(35));
+
+        List<Sequence> sequences = new ArrayList<>();
+        sequences.add(new Sequence(entireList));
+        AdapterArray.calculateArrangements(entireList, sequences);
+        assertThat(sequences.size(), is(8));
     }
 
     @Test
@@ -46,8 +50,12 @@ public class AdapterArrayTest {
         }
 
         int differences = AdapterArray.calculateDifferences(entireList);
-
         assertThat(differences, is(220));
+
+        List<Sequence> sequences = new ArrayList<>();
+        sequences.add(new Sequence(entireList));
+        AdapterArray.calculateArrangements(entireList, sequences);
+        assertThat(sequences.size(), is(19208));
     }
 
     @Test
@@ -64,7 +72,11 @@ public class AdapterArrayTest {
         }
 
         int differences = AdapterArray.calculateDifferences(entireList);
-
         assertThat(differences, is(2070));
+
+        List<Sequence> sequences = new ArrayList<>();
+        sequences.add(new Sequence(entireList));
+        AdapterArray.calculateArrangements(entireList, sequences);
+        assertThat(sequences.size(), is(19208));
     }
 }
